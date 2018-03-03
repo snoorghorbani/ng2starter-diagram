@@ -1,0 +1,1 @@
+{"version":3,"file":"diagram.config.js","sourceRoot":"","sources":["../dist/diagram.config.ts"],"names":[],"mappings":";;AAAA,sCAA+C;AASlC,QAAA,qBAAqB,GAAwB;IACzD,SAAS,EAAE,EAAE;IACb,GAAG,EAAE;QACJ,UAAU,EAAE,KAAK;KACjB;CACD;AAEY,QAAA,mBAAmB,GAAG,IAAI,qBAAc,CAAsB,qBAAqB,CAAC"}

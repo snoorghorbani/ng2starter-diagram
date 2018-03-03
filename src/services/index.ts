@@ -1,2 +1,2 @@
-export * from "./diagram-module-configuration";
-export * from "./diagram";
+export * from "./diagram-configuration.service";
+export * from "./diagram.service";

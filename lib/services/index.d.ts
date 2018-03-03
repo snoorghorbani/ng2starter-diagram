@@ -1,3 +1,2 @@
-export * from "./password.service";
-export * from "./user.service";
-export * from "./user-configuration.service";
+export * from "./diagram-configuration.service";
+export * from "./diagram.service";
