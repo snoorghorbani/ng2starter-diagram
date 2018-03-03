@@ -1,6 +1,6 @@
 {
 	"name": "@soushians/diagram",
-	"version": "2.0.10",
+	"version": "2.0.11",
 	"description": "",
 	"keywords": [ "Angular", "Starter", "MEAN", "MongoDB", "diagram generator" ],
 	"main": "lib/index.js",
