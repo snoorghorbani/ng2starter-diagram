@@ -1,8 +1,8 @@
-import { OnInit, EventEmitter, Injector, OnDestroy } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { DiagramService } from '../../services';
-import { Subscription } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { OnInit, EventEmitter, Injector, OnDestroy } from "@angular/core";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { DiagramService } from "../../services";
+import { Subscription } from "rxjs";
+import { FormGroup } from "@angular/forms";
 export declare class LinearDiagramPartialConfigComponent implements OnInit, OnDestroy {
     private injector;
     dataSubscribtion: Subscription;
