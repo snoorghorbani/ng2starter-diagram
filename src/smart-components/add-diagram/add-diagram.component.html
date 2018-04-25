@@ -22,7 +22,7 @@
           <div>
             <mat-radio-group (change)="typeChanged()" formControlName="Type" fxFlexFill>
               <label>نوع نمودار :</label>
-              <mat-radio-button (change)="typeChanged(item)" *ngFor="let item of diagramTypes" [value]="item" class="form-element-margin">
+              <mat-radio-button (change)="typeChanged()" *ngFor="let item of diagramTypes" [value]="item" class="form-element-margin">
                 {{item}}
               </mat-radio-button>
             </mat-radio-group>
@@ -106,10 +106,10 @@
         <div class="item-margin">
           <div class="list-item" *ngFor="let item of formGroup.controls.columns.value; let i=index" fxLayoutAlign="space-between center">
             <span>{{item[0]}} : {{item[1]}}</span>
-            <span [formGroup]="formGroup.controls.Colors" *ngIf="formGroup.controls.Colors.controls[item[0]]">
+            <span [formGroup]="formGroup.controls.Colors" *ngIf="$any(formGroup.controls.Colors).controls[item[0]]">
               <input placeholder="رنگ نمودار" (change)="configChanged()" [formControlName]="item[0]" type="color">
             </span>
-            <mat-form-field [formGroup]="formGroup.controls.Types" *ngIf="formGroup.controls.Types.controls[item[0]]">
+            <mat-form-field [formGroup]="formGroup.controls.Types" *ngIf="$any(formGroup.controls.Types).controls[item[0]]">
               <!-- <input placeholder="tipo" (change)="configChanged()" > -->
               <mat-select placeholder="tipo" [formControlName]="item[0]">
                 <mat-option>--</mat-option>

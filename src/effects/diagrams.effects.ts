@@ -1,12 +1,8 @@
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/switchMap';
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Action } from '@ngrx/store';
-import { Actions, Effect, toPayload } from '@ngrx/effects';
+import { Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs/observable/of';
 import { Store } from '@ngrx/store';
 
@@ -15,6 +11,7 @@ import {
 } from '../actions';
 import { DiagramService } from '../services';
 import { DiagramModel, GetDiagramsApiModel } from '../models';
+import { map, switchMap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class DiagramEffects {
@@ -28,17 +25,22 @@ export class DiagramEffects {
   @Effect()
   DiagramRequest$ = this.actions$
     .ofType()
-    .map(toPayload)
-    .map((data) => new GetDiagramsStart())
+    .pipe(
+      map(action => action.payload),
+      map((data) => new GetDiagramsStart())
+    )
 
   @Effect()
   getDiagram$ = this.actions$
     .ofType()
-    .map(toPayload)
-    .switchMap((data: GetDiagramsApiModel.Request) => {
-      return this.diagramService.getDiagrams()
-        .map(res => new GetDiagramsSucceed(res))
-        .catch(() => Observable.of(new GetDiagramsFailed()))
-    });
+    .pipe(
+      map(action => action.payload),
+      switchMap((data: GetDiagramsApiModel.Request) => this.diagramService.getDiagrams()
+        .pipe(
+          map(res => new GetDiagramsSucceed(res)),
+          catchError(() => Observable.of(new GetDiagramsFailed()))
+        )
+      )
+    );
 
 }

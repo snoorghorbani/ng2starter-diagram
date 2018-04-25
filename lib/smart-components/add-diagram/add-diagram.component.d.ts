@@ -1,13 +1,13 @@
-import { OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { OnInit, OnDestroy } from "@angular/core";
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { Observable } from "rxjs/Observable";
 import { Store } from "@ngrx/store";
-import { ActivatedRoute } from '@angular/router';
-import { DiagramService } from '../../services';
-import { DiagramModel, SourceModel } from '../../models';
-import * as FeatureReducer from '../../reducers';
-import { AbstractControl } from '@angular/forms/src/model';
-import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from "@angular/router";
+import { DiagramService } from "../../services";
+import { DiagramModel, SourceModel } from "../../models";
+import * as FeatureReducer from "../../reducers";
+import { AbstractControl } from "@angular/forms/src/model";
+import { Subscription } from "rxjs/Subscription";
 export declare class AddDiagramComponent implements OnInit, OnDestroy {
     private diagramService;
     private formBuilder;
